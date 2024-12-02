@@ -1,18 +1,13 @@
 package entity;
 
-public class Swordsman extends Soldier {
-    private final String typeOfFight = "ADAPTABLE";
-    private final int damage = 5;
+import interfaces.SoldierComand;
+import enums.TypeOfFight;
 
-    public Swordsman(String name) {
-        super(name);
-    }
+public class Swordsman extends Soldier implements SoldierComand {
+    private final TypeOfFight typeOfFight = TypeOfFight.ADAPTABLE;
 
-    @Override
-    public void printAttack() {
-        System.out.println(
-                "Soldier " + super.getName() + " deals " + this.damage + " damage"
-        );
+    public Swordsman(String name, Integer dealDamage) {
+        super(name, dealDamage);
     }
 
     @Override
@@ -21,6 +16,5 @@ public class Swordsman extends Soldier {
                 "Soldier " + super.getName() + " here. " + "Type - " + this.typeOfFight
         );
     }
-
 
 }

@@ -1,25 +1,19 @@
 package entity;
+import enums.TypeOfFight;
+import interfaces.SoldierComand;
 
-public class Berserk extends Soldier {
-    private final String type = "DEFENSIVE";
-    private final int damage = 3;
 
-    public Berserk(String name) {
-        super(name);
+public class Berserk extends Soldier implements SoldierComand {
+    private final TypeOfFight typeOfFight = TypeOfFight.DEFENSIVE;
+
+    public Berserk(String name, Integer dealDamage) {
+        super(name, dealDamage);
     }
-
-    @Override
-    public void printAttack() {
-        System.out.println(
-                "Soldier " + super.getName() + " deals " + this.damage + " damage"
-        );
-    }
-
 
     @Override
     public void report() {
         System.out.println(
-                "Soldier " + super.getName() + " here. " + "Type - " + this.type
+                "Soldier " + super.getName() + " here. " + "Type - " + this.typeOfFight
         );
     }
 }
